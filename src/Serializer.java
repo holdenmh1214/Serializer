@@ -18,37 +18,8 @@ public class Serializer {
 
         newBook = loadBook();
 
-        Scanner scanner = new Scanner(System.in);
+        questions();
 
-        System.out.println("Would you like to add or edit book? [y]/[n]");
-        String answer;
-        answer = scanner.nextLine();
-
-        if (answer.equals("y")) {
-            newBook = new Book();
-            System.out.println("What is your book title?");
-            newBook.title = scanner.nextLine();
-
-            System.out.println("Who is the author?");
-            newBook.author = scanner.nextLine();
-
-            System.out.println("What is the genre?");
-            newBook.genre = scanner.nextLine();
-
-            System.out.println("When was it published?");
-            newBook.publishDate = scanner.nextLine();
-
-            System.out.println("Who is the main protagonist?");
-            newBook.protagonistName = scanner.nextLine();
-
-            saveBook();
-        } else if (answer.equals("n")){
-            System.out.println("Exiting system");
-            System.exit(0);
-        } else {
-            System.out.println("Invalid option");
-            System.exit(0);
-        }
     }
 
     static void saveBook() {
@@ -80,6 +51,40 @@ public class Serializer {
         } catch (Exception e) {
             System.out.println("There is no data in this file");
             return null;
+        }
+    }
+
+    static void questions(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Would you like to add or edit book? [y]/[n]");
+        String answer;
+        answer = scanner.nextLine();
+
+        if (answer.equals("y")) {
+            newBook = new Book();
+            System.out.println("What is your book title?");
+            newBook.title = scanner.nextLine();
+
+            System.out.println("Who is the author?");
+            newBook.author = scanner.nextLine();
+
+            System.out.println("What is the genre?");
+            newBook.genre = scanner.nextLine();
+
+            System.out.println("When was it published?");
+            newBook.publishDate = scanner.nextLine();
+
+            System.out.println("Who is the main protagonist?");
+            newBook.protagonistName = scanner.nextLine();
+
+            saveBook();
+
+        } else if (answer.equals("n")){
+            System.out.println("Exiting system");
+            System.exit(0);
+        } else {
+            System.out.println("Invalid option");
+            System.exit(0);
         }
     }
 }
