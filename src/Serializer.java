@@ -18,8 +18,13 @@ public class Serializer {
 
         newBook = loadBook();
 
-        questions();
+        if (newBook == null){
+            questions();
 
+        } else {
+            System.out.println("Book Found");
+            questions();
+        }
     }
 
     static void saveBook() {
@@ -49,7 +54,7 @@ public class Serializer {
             return parser.parse(fileContents, Book.class);
 
         } catch (Exception e) {
-            System.out.println("There is no data in this file");
+            System.out.println("Oops.. There was an error somewhere!");
             return null;
         }
     }
@@ -58,7 +63,7 @@ public class Serializer {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Would you like to add or edit book? [y]/[n]");
         String answer;
-        answer = scanner.nextLine();
+        answer = scanner.nextLine().toLowerCase();
 
         if (answer.equals("y")) {
             newBook = new Book();
